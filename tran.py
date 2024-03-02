@@ -14,5 +14,3 @@ def local_translator(text: str):
             return "Tarjima qilishda xatolik yuz berdi!"
     except:
         return "Tarjima qilishda xatolik yuz berdi!"
-    
-    

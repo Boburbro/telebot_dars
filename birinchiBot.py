@@ -3,8 +3,6 @@ import telebot
 bot = telebot.TeleBot("6736723597:AAElQF73z3lMjIMXmV1dGGj_09tX3QkU1kk")
 
 
-
-
 @bot.message_handler(commands=["help"])
 def help(message):
     bot.send_message(chat_id=message.chat.id, text="/start - boshlash\n/help - yordam")

@@ -3,7 +3,14 @@
 </h1>
 
 ## 1-dars
-### Telebotni yuklab olish
+
+<div align="center">
+<iframe 
+    src="https://youtu.be/IlsOtPRkyl4?si=WBu2SI1l2XWTOz-V">
+</iframe>
+</div>
+
+### Telebotni *(pyTelegramBotAPI)* yuklab olish
 ```pip install PyTelegramBotAPI```
 
 ### [1-bot kodi](/birinchiBot.py)
@@ -58,4 +65,33 @@ def local_translator(text: str):
     except:
         return "Tarjima qilishda xatolik yuz berdi!"
 ``` 
+
+### [2-bot kodi:](/ikkinchiBot.py)
+
+```python
+from telebot import TeleBot
+from telebot.types import Message
+
+from tran import local_translator
+
+bot = TeleBot("6736723597:AAElQF73z3lMjIMXmV1dGGj_09tX3QkU1kk")
+
+@bot.message_handler(commands=['start'])
+def start(message: Message):
+    bot.send_message(message.chat.id, "Assalomu alaykum!")
+
+
+@bot.message_handler()
+def run(message: Message):
+    text = message.text
+
+    t = local_translator(text)
+
+    bot.reply_to(message, t) 
+
+
+if __name__ == "__main__":
+    bot.infinity_polling()
+```
+
 
