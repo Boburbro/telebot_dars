@@ -2,13 +2,8 @@
   TeleBot
 </h1>
 
-## 1-dars
+## [1-dars](https://youtu.be/IlsOtPRkyl4?si=WBu2SI1l2XWTOz-V)
 
-<div align="center">
-<iframe 
-    src="https://youtu.be/IlsOtPRkyl4?si=WBu2SI1l2XWTOz-V">
-</iframe>
-</div>
 
 ### Telebotni *(pyTelegramBotAPI)* yuklab olish
 ```pip install PyTelegramBotAPI```
