@@ -1,0 +1,61 @@
+<h1 align="center">
+  TeleBot
+</h1>
+
+## 1-dars
+### Telebotni yuklab olish
+```pip install PyTelegramBotAPI```
+
+### [1-bot kodi](/birinchiBot.py)
+
+```python
+import telebot
+
+bot = telebot.TeleBot("6736723597:AAElQF73z3lMjIMXmV1dGGj_09tX3QkU1kk")
+
+
+@bot.message_handler(commands=["help"])
+def help(message):
+    bot.send_message(chat_id=message.chat.id, text="/start - boshlash\n/help - yordam")
+
+@bot.message_handler(content_types=['text'])
+def echo(message):
+    if not((message.text).startswith("/")):
+        bot.reply_to(message, message.text)
+    else:
+        bot.reply_to(message, "Bu kamanda!")
+
+@bot.message_handler(commands=["start"])
+def start(message):
+    bot.reply_to(message, "Salom!\nBotimizga hush kelibsiz!")
+
+
+if __name__ == "__main__":
+    bot.infinity_polling()
+```
+
+
+## 2-dars
+### Google tarjimon kutubxonsini yuklab olish
+```pip install googletrans==3.1.0a0```
+
+### [Foydalanish:](/tran.py)
+```python
+from googletrans import Translator
+
+def local_translator(text: str):
+    try:
+        t = Translator()
+        d = t.detect(text).lang
+        if d == "en":
+            return f"🇺🇿{t.translate(text, str='uz', dest='uz').text}"
+
+        if d == "uz":
+            return f"🇬🇧{t.translate(text, str='en', dest='en').text}"
+        
+        else:
+            return "Tarjima qilishda xatolik yuz berdi!"
+    except:
+        return "Tarjima qilishda xatolik yuz berdi!"
+``` 
+
